@@ -10,6 +10,7 @@
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "test:functional": "jest --projects ./test --runInBand",
+    "test:unit": "jest",
     "style:check": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
     "style:fix": "prettier --write 'src/**/*.ts' 'test/**/*.ts'"
   },
@@ -39,6 +40,7 @@
   },
   "dependencies": {
     "@overnightjs/core": "^1.7.6",
+    "axios": "^1.7.2",
     "express": "^4.19.2",
     "module-alias": "^2.2.3"
   }
