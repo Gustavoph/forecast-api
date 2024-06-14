@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 
-export enum GeoPosition {
+export enum BeachPosition {
   S = 'S',
   E = 'E',
   W = 'W',
@@ -10,7 +10,7 @@ export enum GeoPosition {
 export interface Beach {
   _id?: string
   name: string
-  position: GeoPosition
+  position: BeachPosition
   lat: number
   lng: number
 }
@@ -19,7 +19,7 @@ export interface ExistingBeach extends Beach {
   id: string
 }
 
-const schema = new mongoose.Schema(
+const schema = new Schema(
   {
     lat: { type: Number, required: true },
     lng: { type: Number, required: true },
