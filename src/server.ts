@@ -1,9 +1,9 @@
 import './util/module-alias'
 import { Server } from '@overnightjs/core'
 import { Application, json } from 'express'
-import { ForecastController } from './controllers/forecast'
+import { ForecastController } from '@src/controllers/forecast'
 import * as database from '@src/database'
-import { BeachesController } from './controllers/beaches'
+import { BeachesController } from '@src/controllers/beaches'
 
 export class SetupServer extends Server {
   constructor(private port = 3000) {
@@ -37,5 +37,11 @@ export class SetupServer extends Server {
 
   public async close(): Promise<void> {
     await database.close()
+  }
+
+  public start(): void {
+    this.app.listen(this.port, () => {
+      console.info('Server listening at port:', this.port)
+    })
   }
 }
