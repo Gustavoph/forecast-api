@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose, { Document, Schema } from 'mongoose'
 
 export enum BeachPosition {
   S = 'S',
@@ -15,7 +15,7 @@ export interface Beach {
   lng: number
 }
 
-export interface ExistingBeach extends Beach {
+export interface ExistingBeach extends Omit<Beach, '_id'>, Document {
   id: string
 }
 
